@@ -1,0 +1,18 @@
+colors:
+  black: &black [ 0, 0, 0, 1 ]
+  white: &white [ 1, 1, 1, 1 ]
+
+# Check `patterns.yaml` for available patterns
+pattern: Pentadecathlon
+
+config:
+  width: 600
+  height: 600
+  rows: 18  # overridden by pattern
+  cols: 11  # overridden by pattern
+  frame_rate: 5
+  bg_color: *black
+  recording_abspath: ""
+  cell_color_map:
+    - [ 50, 50, 50 ]  # CellState.DEAD
+    - [ 200, 200, 200 ]  # CellState.ALIVE

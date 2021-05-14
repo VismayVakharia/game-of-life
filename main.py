@@ -1,4 +1,4 @@
-#!/usr/share/env python3.8
+#!/usr/bin/env python3
 
 import yaml
 
@@ -17,7 +17,8 @@ if __name__ == "__main__":
 
     config = configuration["config"]
 
-    if pattern_name := configuration["pattern"]:
+    pattern_name = configuration["pattern"]
+    if pattern_name:
         pattern = load_pattern(pattern_name)
         config["rows"], config["cols"] = pattern["size"]
 

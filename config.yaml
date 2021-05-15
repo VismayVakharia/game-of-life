@@ -1,18 +1,24 @@
-colors:
-  black: &black [ 0, 0, 0, 1 ]
-  white: &white [ 1, 1, 1, 1 ]
-
-# Check `patterns.yaml` for available patterns
-pattern: Pentadecathlon
+# Check `patterns.yaml` for available patterns, 'null' for no-pattern
+pattern: Pulsar
 
 config:
   width: 600
   height: 600
-  rows: 18  # overridden by pattern
-  cols: 11  # overridden by pattern
+  rows: 9  # overridden by pattern
+  cols: 9  # overridden by pattern
   frame_rate: 5
-  bg_color: *black
+  bg_color:
+    - 0  # red: range [0, 1]
+    - 0  # blue: range [0, 1]
+    - 0  # green: range [0, 1]
+    - 1  # alpha: range [0, 1]
   recording_abspath: ""
   cell_color_map:
-    - [ 50, 50, 50 ]  # CellState.DEAD
-    - [ 200, 200, 200 ]  # CellState.ALIVE
+    - # CellState.DEAD
+      - 50  # red: range [0, 255]
+      - 50  # green: range [0, 255]
+      - 50  # blue: range [0, 255]
+    - # CellState.ALIVE
+      - 200  # red: range [0, 255]
+      - 200  # green: range [0, 255]
+      - 200  # blue: range [0, 255]

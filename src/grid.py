@@ -50,6 +50,14 @@ class Grid:
         for cell in changes:
             cell.toggle()
 
+    def print_pattern(self):
+        cell_state_map = {CellState.DEAD: "0", CellState.ALIVE: "1"}
+        for row in self.grid:
+            string = ("{} " * self.cols).format(
+                *map(lambda cell: cell_state_map[cell.state], row)
+            )
+            print("- " + string)
+
     def print_grid_plain(self):
         unicode_map = {CellState.DEAD: " ", CellState.ALIVE: "\u25cf"}
         for row in self.grid:

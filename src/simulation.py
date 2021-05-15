@@ -42,7 +42,7 @@ class Simulation(BaseWindow):
             self.cell_sprites.append(
                 CellSprite(
                     self.x_offset + j * self.cell_size,
-                    self.y_offset + i * self.cell_size,
+                    height - self.y_offset - (i + 1) * self.cell_size,
                     self.cell_size,
                     self.batch,
                     self.grid.grid[i][j],
@@ -87,5 +87,5 @@ class Simulation(BaseWindow):
 
     def on_mouse_release(self, x, y, button, modifiers):
         j = (x - self.x_offset) // self.cell_size
-        i = (y - self.y_offset) // self.cell_size
+        i = (self.height - y - self.y_offset) // self.cell_size
         self.grid.grid[i][j].toggle()

@@ -21,7 +21,7 @@ class Grid:
     ) -> List[Tuple[int, int]]:
         neighbours = []
         for i, j in product([-1, 0, 1], repeat=2):
-            if not (i == j == 0):
+            if not i == j == 0:
                 neighbour = (x + i, y + j)
                 if (
                     x_limits[0] <= neighbour[0] <= x_limits[1]
@@ -41,7 +41,7 @@ class Grid:
                 count += self.grid[neighbour[0]][neighbour[1]].state
             cell = self.grid[i][j]
             if cell.state is CellState.ALIVE:
-                if not (2 <= count <= 3):
+                if not 2 <= count <= 3:
                     changes.append(cell)
             else:
                 if count == 3:

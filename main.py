@@ -25,7 +25,7 @@ def main():
         config["rows"], config["cols"] = size
         sim = Simulation(**config)
 
-        points = list(map(lambda row: row.split(" "), pattern["points"][::-1]))
+        points = list(map(lambda row: row.split(" "), pattern["points"]))
         for i, j in product(range(size[0]), range(size[1])):
             if points[i][j] == "1":
                 sim.grid.grid[i][j].toggle()

@@ -19,8 +19,9 @@ class BaseWindow(pyglet.window.Window):
         super().__init__(width, height, config=config)
         gl.glClearColor(*bg_color)
 
+        self.bg_color = bg_color
         self.frame_rate = frame_rate
-        self.is_paused = True
+        self.paused = True
         self.recording = False
         if recording_abspath:
             self.recording = True
@@ -51,10 +52,10 @@ class BaseWindow(pyglet.window.Window):
 
     def on_key_release(self, symbol, modifiers):
         if symbol == pyglet.window.key.SPACE:
-            self.is_paused = not self.is_paused
+            self.paused = not self.paused
 
     def update(self, dt):
-        if not self.is_paused:
+        if not self.paused:
             self.actual_update(dt)
 
     def actual_update(self, dt):

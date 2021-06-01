@@ -8,6 +8,7 @@ class Grid:
     def __init__(self, rows: int, cols: int):
         self.rows = rows
         self.cols = cols
+        self.generations = 0
 
         self.grid: List[List[Cell]] = []
         for i in range(rows):
@@ -49,6 +50,7 @@ class Grid:
 
         for cell in changes:
             cell.toggle()
+        self.generations += 1
 
     def print_pattern(self):
         cell_state_map = {CellState.DEAD: "0", CellState.ALIVE: "1"}
